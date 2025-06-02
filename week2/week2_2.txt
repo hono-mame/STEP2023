@@ -1,0 +1,20 @@
+現実の大規模なデータベースでは、ハッシュテーブルではなく木構造が使われることが多い。その理由を考えよ。
+
+a hash table is more efficient than a tree. 
+However, real-world large-scale database systems tend to prefer a tree to a hash table. Why?
+
+
+・実際のデータベースでは、データが何回も挿入、削除されるため、データ数がいくつになるのか予想するのが困難だから。
+データの数が大きく変わった場合にはテーブルのサイズの変更が必要だが、木の場合は全体的な変更をする必要がないから。
+In an actual database, data is inserted and deleted so many times that it is difficult to predict
+how many data will be in the database.
+When the number of data changes significantly, the size of the table should be changed.
+
+・使用するメモリの数が大きくなり過ぎてしまうから。なるべくデータが衝突しないようにハッシュ関数を定義して、
+ それぞれのハッシュ値に対応する場所にデータを挿入するので、木よりも使用メモリ数が大きくなってしまう。
+The number of memory used would be too large. The number of memory used is larger than that of a tree 
+because hash functions are defined to avoid data collisions as much as possible, 
+and data is inserted at the location corresponding to each hash value.
+
+・大きなデータに対しては効率的なハッシュ関数を定めるのが難しいから？
+Because it is difficult to define an efficient hash function for larger data?
